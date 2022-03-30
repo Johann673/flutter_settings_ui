@@ -285,8 +285,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
         break;
     }
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return InkWell(
       onTap: () {
         if ((widget.onPress != null || widget.onToggle != null) &&
             widget.enabled) {
@@ -316,13 +315,6 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
               widget.onPress?.call();
             });
           }
-        }
-      },
-      onTapUp: (_) {
-        if (widget.enabled && mounted) {
-          setState(() {
-            pressed = false;
-          });
         }
       },
       onTapDown: (_) {
